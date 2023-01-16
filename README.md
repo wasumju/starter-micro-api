@@ -1,12 +1,31 @@
-# starter-micro-api
+# Echo Bot
 
-This is the simplest possible nodejs api using the base http library that responds to any request with: 
+An example LINE bot just to echo messages
+
+## How to use
+
+### Install deps
+
+``` shell
+$ npm install
 ```
-Yo!
+
+### Configuration
+
+``` shell
+$ export CHANNEL_SECRET=YOUR_CHANNEL_SECRET
+$ export CHANNEL_ACCESS_TOKEN=YOUR_CHANNEL_ACCESS_TOKEN
+$ export PORT=1234
 ```
 
-## Deploy in under 10 seconds
+### Run
 
-[![Deploy to Cyclic](https://deploy.cyclic.app/button.svg)](https://deploy.cyclic.app/)
-- Sets up instant continuous deployment on `git push`
-- Realtime backend logs and API request monitoring
+``` shell
+$ node .
+```
+
+## Webhook URL
+
+```
+https://your.base.url/callback
+```
