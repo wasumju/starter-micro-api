@@ -127,7 +127,7 @@ function handleEvent(event) {
           "action": {
            "type": "uri",
            "label": "ตั้งค่า (คลิกที่นี่)",
-           "uri": "https://erp.mju.ac.th/personelSetting.aspx"
+           "uri": "https://erp.mju.ac.th/lineSetting.aspx"
           }
          }
         ]
