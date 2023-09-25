@@ -19,8 +19,8 @@ const app = express();
 
 // Dialogflow
 const dialogflow = require('dialogflow');
-const sessionClient = new dialogflow.SessionsClient();
-const projectId = 'erp-bot-qmfr';
+//const sessionClient = new dialogflow.SessionsClient();
+//const projectId = 'erp-bot-qmfr';
 
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
