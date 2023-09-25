@@ -18,7 +18,7 @@ const client = new line.Client(config);
 const app = express();
 
 // Dialogflow
-const dialogflow = require('dialogflow');
+//const dialogflow = require('dialogflow');
 //const sessionClient = new dialogflow.SessionsClient();
 //const projectId = 'erp-bot-qmfr';
 
