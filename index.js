@@ -17,6 +17,11 @@ const client = new line.Client(config);
 // about Express itself: https://expressjs.com/
 const app = express();
 
+// Dialogflow
+const dialogflow = require('dialogflow');
+const sessionClient = new dialogflow.SessionsClient();
+const projectId = 'erp-bot-qmfr';
+
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
 app.post('/callback', line.middleware(config), (req, res) => {
@@ -30,7 +35,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
 });
 
 // event handler
-function handleEvent(event) {
+async function handleEvent(event) {
   if (event.type === 'follow') {      
     const axios = require('axios')
 
@@ -136,24 +141,34 @@ function handleEvent(event) {
      }
     return client.replyMessage(event.replyToken, echo);  
   } else if (event.type === 'message') {
-    const axios = require('axios')
+      const messageText = event.message.text;
+      const sessionId = event.source.userId; // You can use the LINE user ID as the Dialogflow session ID.
 
-    axios
-      .post('https://rubber.mju.ac.th/lineapi/api/values', {
-        eventType: event.type,
-        userId: event.source.userId,
-        replyToken:  event.replyToken,
-        messageType: event.message.type,
-        messageText: event.message.text,
-        eventText: JSON.stringify(event)    
-      })
-      .then(res => {
-        console.log(`statusCode: ${res.status}`)
-        console.log(res)
-      })
-      .catch(error => {
-        console.error(error)
-      })
+      // Detect intent with Dialogflow
+      const sessionPath = sessionClient.sessionPath(projectId, sessionId);
+      const request = {
+          session: sessionPath,
+          queryInput: {
+              text: {
+                  text: messageText,
+                  languageCode: 'en', // Replace with the appropriate language code
+              },
+          },
+      };
+
+      try {
+          const responses = await sessionClient.detectIntent(request);
+          const result = responses[0].queryResult;
+
+          // Handle the response from Dialogflow
+          const fulfillmentText = result.fulfillmentText;
+          if (fulfillmentText) {
+              const replyMessage = { type: 'text', text: fulfillmentText };
+              return client.replyMessage(event.replyToken, replyMessage);
+          }
+      } catch (err) {
+          console.error('Error detecting intent:', err);
+      }
   } else {
     
   }  
