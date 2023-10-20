@@ -35,7 +35,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
 });
 
 // event handler
-function handleEvent(event) {
+async function handleEvent(event) {
   if (event.type === 'follow') {      
     const axios = require('axios')
 
