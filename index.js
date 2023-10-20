@@ -141,6 +141,32 @@ function handleEvent(event) {
      }
     return client.replyMessage(event.replyToken, echo);  
   } else if (event.type === 'message') {
+      // Detect intent with Dialogflow
+      const sessionPath = sessionClient.sessionPath(projectId, sessionId);
+      const request = {
+          session: sessionPath,
+          queryInput: {
+              text: {
+                  text: messageText,
+                  languageCode: 'en', // Replace with the appropriate language code
+              },
+          },
+      };
+
+      try {
+          const responses = await sessionClient.detectIntent(request);
+          const result = responses[0].queryResult;
+
+          // Handle the response from Dialogflow
+          const fulfillmentText = result.fulfillmentText;
+          if (fulfillmentText) {
+              const replyMessage = { type: 'text', text: fulfillmentText };
+              return client.replyMessage(event.replyToken, replyMessage);
+          }
+      } catch (err) {
+          console.error('Error detecting intent:', err);
+      }
+
     const axios = require('axios')
 
     axios
