@@ -141,49 +141,51 @@ async function handleEvent(event) {
      }
     return client.replyMessage(event.replyToken, echo);  
   } else if (event.type === 'message') {      
-      //const sessionPath = sessionClient.sessionPath(projectId, sessionId);
-      //const request = {
-      //    session: sessionPath,
-      //    queryInput: {
-      //        text: {
-      //            text: messageText,
-      //            languageCode: 'en', // Replace with the appropriate language code
-      //        },
-      //    },
-      //};
+      try {
+          const messageText = event.message.text;
+          const sessionId = event.source.userId;
+          const sessionPath = sessionClient.sessionPath(projectId, sessionId);
+          const request = {
+              session: sessionPath,
+              queryInput: {
+                  text: {
+                      text: messageText,
+                      languageCode: 'en', // Replace with the appropriate language code
+                  },
+              },
+          };
 
-      //try {
-      //    const responses = await sessionClient.detectIntent(request);
-      //    const result = responses[0].queryResult;
+          const responses = await sessionClient.detectIntent(request);
+          const result = responses[0].queryResult;
 
-      //    // Handle the response from Dialogflow
-      //    const fulfillmentText = result.fulfillmentText;
-      //    if (fulfillmentText) {
-      //        const replyMessage = { type: 'text', text: fulfillmentText };
-      //        return client.replyMessage(event.replyToken, replyMessage);
-      //    }
-      //} catch (err) {
-      //    console.error('Error detecting intent:', err);
-      //}
+          // Handle the response from Dialogflow
+          const fulfillmentText = result.fulfillmentText;
+          if (fulfillmentText) {
+              const replyMessage = { type: 'text', text: fulfillmentText };
+              return client.replyMessage(event.replyToken, replyMessage);
+          }
+      } catch (err) {
+          console.error('Error detecting intent:', err);
+      }
 
-    const axios = require('axios')
+    //const axios = require('axios')
 
-    axios
-      .post('https://rubber.mju.ac.th/lineapi/api/values', {
-        eventType: event.type,
-        userId: event.source.userId,
-        replyToken:  event.replyToken,
-        messageType: event.message.type,
-        messageText: event.message.text,
-        eventText: JSON.stringify(event)    
-      })
-      .then(res => {
-        console.log(`statusCode: ${res.status}`)
-        console.log(res)
-      })
-      .catch(error => {
-        console.error(error)
-      })
+    //axios
+    //  .post('https://rubber.mju.ac.th/lineapi/api/values', {
+    //    eventType: event.type,
+    //    userId: event.source.userId,
+    //    replyToken:  event.replyToken,
+    //    messageType: event.message.type,
+    //    messageText: event.message.text,
+    //    eventText: JSON.stringify(event)    
+    //  })
+    //  .then(res => {
+    //    console.log(`statusCode: ${res.status}`)
+    //    console.log(res)
+    //  })
+    //  .catch(error => {
+    //    console.error(error)
+    //  })
   } else {
     
   }  
