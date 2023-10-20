@@ -168,24 +168,24 @@ async function handleEvent(event) {
           console.error('Error detecting intent:', err);
       }
 
-    //const axios = require('axios')
+    const axios = require('axios')
 
-    //axios
-    //  .post('https://rubber.mju.ac.th/lineapi/api/values', {
-    //    eventType: event.type,
-    //    userId: event.source.userId,
-    //    replyToken:  event.replyToken,
-    //    messageType: event.message.type,
-    //    messageText: event.message.text,
-    //    eventText: JSON.stringify(event)    
-    //  })
-    //  .then(res => {
-    //    console.log(`statusCode: ${res.status}`)
-    //    console.log(res)
-    //  })
-    //  .catch(error => {
-    //    console.error(error)
-    //  })
+    axios
+      .post('https://rubber.mju.ac.th/lineapi/api/values', {
+        eventType: event.type,
+        userId: event.source.userId,
+        replyToken:  event.replyToken,
+        messageType: event.message.type,
+        messageText: event.message.text,
+        eventText: JSON.stringify(event)    
+      })
+      .then(res => {
+        console.log(`statusCode: ${res.status}`)
+        console.log(res)
+      })
+      .catch(error => {
+        console.error(error)
+      })
   } else {
     
   }  
