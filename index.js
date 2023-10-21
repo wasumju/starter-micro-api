@@ -165,7 +165,7 @@ async function handleEvent(event) {
               return client.replyMessage(event.replyToken, replyMessage);
           }
       } catch (err) {
-          console.error('Error detecting intent:', err);
+          return client.replyMessage(event.replyToken, err);          
       }
 
     const axios = require('axios')
@@ -187,7 +187,32 @@ async function handleEvent(event) {
         console.error(error)
       })
   } else {
-    
+      try {
+          const messageText = event.message.text;
+          const sessionId = event.source.userId;
+          const sessionPath = sessionClient.sessionPath(projectId, sessionId);
+          const request = {
+              session: sessionPath,
+              queryInput: {
+                  text: {
+                      text: messageText,
+                      languageCode: 'en', // Replace with the appropriate language code
+                  },
+              },
+          };
+
+          const responses = await sessionClient.detectIntent(request);
+          const result = responses[0].queryResult;
+
+          // Handle the response from Dialogflow
+          const fulfillmentText = result.fulfillmentText;
+          if (fulfillmentText) {
+              const replyMessage = { type: 'text', text: fulfillmentText };
+              return client.replyMessage(event.replyToken, replyMessage);
+          }
+      } catch (err) {
+          return client.replyMessage(event.replyToken, err);
+      }
   }  
 
 }
