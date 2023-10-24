@@ -175,10 +175,10 @@ async function handleEvent(event) {
             .post('https://rubber.mju.ac.th/lineapi/api/values', {
                 eventType: event.type,
                 userId: event.source.userId,
-                replyToken: event.replyToken,
+                replyToken: null,
                 messageType: event.message.type,
                 messageText: event.message.text,
-                eventText: JSON.stringify(event)
+                eventText: null
             })
             .then(res => {
                 console.log(`statusCode: ${res.status}`)
