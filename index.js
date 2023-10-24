@@ -82,7 +82,7 @@ async function handleEvent(event) {
                 "aspectMode": "cover",
                 "action": {
                     "type": "uri",
-                    "uri": "https://erp.mju.ac.th/lineAccountManage.aspx?lineAccountManage="
+                    "uri": "http://linecorp.com/"
                 }
             },
             "body": {
@@ -96,7 +96,7 @@ async function handleEvent(event) {
                         "action": {
                             "type": "uri",
                             "label": "สมัครแจ้งเตือน (คลิ๊กที่นี่)",
-                            "uri": "https://erp.mju.ac.th/lineAccountManage.aspx?lineAccountManage="
+                            "uri": "https://linecorp.com"
                         },
                         "color": "#8ABE53"
                     }
