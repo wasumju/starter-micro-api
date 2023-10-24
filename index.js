@@ -186,7 +186,7 @@ async function handleEvent(event) {
             })
             .catch(error => {
                 console.error(error)
-            })
+            });
 
     } else {
         try {
