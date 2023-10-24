@@ -100,22 +100,7 @@ async function handleEvent(event) {
                     }
                 ]
             }
-        };
-        //const echo = {
-        //    "type": "template",
-        //    "altText": "สมัครแจ้งเตือน",
-        //    "template": {
-        //        "type": "buttons",
-        //        "thumbnailImageUrl": "https://erp.mju.ac.th/images/notifylogo.png",
-        //        "title": "เมนู",
-        //        "text": "กดเมนูสมัครรับแจ้งเตือน",
-        //        "actions": [{
-        //            "type": "uri",
-        //            "label": "สมัครแจ้งเตือน",
-        //            "uri": "https://erp.mju.ac.th/lineAccountManage.aspx?lineAccountManage=" + userId + "&replyToken=" + event.replyToken
-        //        }]
-        //    }
-        //};
+        }
         return client.replyMessage(event.replyToken, echo);
     } else if (event.type === 'message' && event.message.text === 'Notify') {
         var userId = event.source.userId;
