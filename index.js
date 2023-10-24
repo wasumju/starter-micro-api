@@ -71,34 +71,38 @@ async function handleEvent(event) {
     } else if (event.type === 'message' && event.message.text === 'Notify2') {
         var userId = event.source.userId;
         const echo = {
-            "type": "bubble",
-            "hero": {
-                "type": "image",
-                "url": "https://erp.mju.ac.th/images/notifylogo.png",
-                "size": "full",
-                "aspectRatio": "20:13",
-                "aspectMode": "cover",
-                "action": {
-                    "type": "uri",
-                    "uri": "http://linecorp.com/"
-                }
-            },
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                    {
-                        "type": "button",
-                        "style": "secondary",
-                        "height": "md",
-                        "action": {
-                            "type": "uri",
-                            "label": "สมัครแจ้งเตือน (คลิ๊กที่นี่)",
-                            "uri": "https://linecorp.com"
-                        },
-                        "color": "#8ABE53"
+            "type": "flex",
+            "altText": "สมัครแจ้งเตือน",
+            "contents": {
+                "type": "bubble",
+                "hero": {
+                    "type": "image",
+                    "url": "https://erp.mju.ac.th/images/notifylogo.png",
+                    "size": "full",
+                    "aspectRatio": "20:13",
+                    "aspectMode": "cover",
+                    "action": {
+                        "type": "uri",
+                        "uri": "http://linecorp.com/"
                     }
-                ]
+                },
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "button",
+                            "style": "secondary",
+                            "height": "md",
+                            "action": {
+                                "type": "uri",
+                                "label": "สมัครแจ้งเตือน (คลิ๊กที่นี่)",
+                                "uri": "https://linecorp.com"
+                            },
+                            "color": "#8ABE53"
+                        }
+                    ]
+                }
             }
         }
         return client.replyMessage(event.replyToken, echo);
