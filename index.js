@@ -67,7 +67,526 @@ async function handleEvent(event) {
             'previewImageUrl': 'https://personnel.mju.ac.th/photomju/E801.jpg?t=2027563652&w=620&h=430'
         };
         return client.replyMessage(event.replyToken, echo);
-
+    } else if (event.type === 'message' && event.message.text === 'Service') {
+        var userId = event.source.userId;
+        const echo = {
+            "type": "flex",
+            "altText": "สมัครแจ้งเตือน",
+            "contents": {
+                "type": "bubble",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "Service Center",
+                            "weight": "bold",
+                            "color": "#1DB446",
+                            "size": "sm"
+                        },
+                        {
+                            "type": "text",
+                            "text": "คำร้อง/บริการ",
+                            "weight": "bold",
+                            "size": "xxl",
+                            "margin": "md"
+                        },
+                        {
+                            "type": "separator",
+                            "margin": "xxl"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "margin": "xxl",
+                            "spacing": "sm",
+                            "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "horizontal",
+                                    "contents": [
+                                        {
+                                            "type": "text",
+                                            "size": "sm",
+                                            "color": "#555555",
+                                            "flex": 0,
+                                            "text": "ขอใบรายงานผลกิจกรรมเสริมหลักสูตร",
+                                            "action": {
+                                                "type": "uri",
+                                                "label": "action",
+                                                "uri": "https://erp.mju.ac.th/"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "horizontal",
+                                    "contents": [
+                                        {
+                                            "type": "text",
+                                            "size": "sm",
+                                            "color": "#555555",
+                                            "flex": 0,
+                                            "text": "ขอใบรายงานผลกิจกรรมเสริมหลักสูตร",
+                                            "action": {
+                                                "type": "uri",
+                                                "label": "action",
+                                                "uri": "https://erp.mju.ac.th/"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "horizontal",
+                                    "contents": [
+                                        {
+                                            "type": "text",
+                                            "size": "sm",
+                                            "color": "#555555",
+                                            "flex": 0,
+                                            "text": "ขอใบรายงานผลกิจกรรมเสริมหลักสูตร",
+                                            "action": {
+                                                "type": "uri",
+                                                "label": "action",
+                                                "uri": "https://erp.mju.ac.th/"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "separator",
+                                    "margin": "xxl"
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "horizontal",
+                                    "margin": "xxl",
+                                    "contents": [
+                                        {
+                                            "type": "text",
+                                            "size": "sm",
+                                            "color": "#555555",
+                                            "flex": 0,
+                                            "text": "ขอใบรายงานผลกิจกรรมเสริมหลักสูตร",
+                                            "action": {
+                                                "type": "uri",
+                                                "label": "action",
+                                                "uri": "https://erp.mju.ac.th/"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "horizontal",
+                                    "contents": [
+                                        {
+                                            "type": "text",
+                                            "size": "sm",
+                                            "color": "#555555",
+                                            "flex": 0,
+                                            "text": "ขอใบรายงานผลกิจกรรมเสริมหลักสูตร",
+                                            "action": {
+                                                "type": "uri",
+                                                "label": "action",
+                                                "uri": "https://erp.mju.ac.th/"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "horizontal",
+                                    "contents": [
+                                        {
+                                            "type": "text",
+                                            "size": "sm",
+                                            "color": "#555555",
+                                            "flex": 0,
+                                            "text": "ขอใบรายงานผลกิจกรรมเสริมหลักสูตร",
+                                            "action": {
+                                                "type": "uri",
+                                                "label": "action",
+                                                "uri": "https://erp.mju.ac.th/"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "horizontal",
+                                    "contents": [
+                                        {
+                                            "type": "text",
+                                            "text": "คำร้องอื่นๆ (ผู้ดูแลจะพิจารณาส่งเรื่องให้)",
+                                            "size": "sm",
+                                            "color": "#555555",
+                                            "action": {
+                                                "type": "uri",
+                                                "label": "action",
+                                                "uri": "https://erp.mju.ac.th/"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "separator",
+                            "margin": "xxl"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "margin": "md",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "ติดตามคำร้อง/บริการ",
+                                    "size": "xs",
+                                    "color": "#449d44",
+                                    "flex": 0,
+                                    "action": {
+                                        "type": "uri",
+                                        "label": "action",
+                                        "uri": "https://erp.mju.ac.th/"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "styles": {
+                    "footer": {
+                        "separator": true
+                    }
+                }
+            }
+        }
+        return client.replyMessage(event.replyToken, echo);
+    } else if (event.type === 'message' && event.message.text === 'Follow-up') {
+        var userId = event.source.userId;
+        const echo = {
+            "type": "flex",
+            "altText": "สมัครแจ้งเตือน",
+            "contents": {
+                "type": "bubble",
+                "size": "mega",
+                "header": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "FROM",
+                                    "color": "#ffffff66",
+                                    "size": "sm"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "Akihabara",
+                                    "color": "#ffffff",
+                                    "size": "xl",
+                                    "flex": 4,
+                                    "weight": "bold"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "TO",
+                                    "color": "#ffffff66",
+                                    "size": "sm"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "Shinjuku",
+                                    "color": "#ffffff",
+                                    "size": "xl",
+                                    "flex": 4,
+                                    "weight": "bold"
+                                }
+                            ]
+                        }
+                    ],
+                    "paddingAll": "20px",
+                    "backgroundColor": "#0367D3",
+                    "spacing": "md",
+                    "height": "154px",
+                    "paddingTop": "22px"
+                },
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "Total: 1 hour",
+                            "color": "#b7b7b7",
+                            "size": "xs"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "20:30",
+                                    "size": "sm",
+                                    "gravity": "center"
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                        {
+                                            "type": "filler"
+                                        },
+                                        {
+                                            "type": "box",
+                                            "layout": "vertical",
+                                            "contents": [],
+                                            "cornerRadius": "30px",
+                                            "height": "12px",
+                                            "width": "12px",
+                                            "borderColor": "#EF454D",
+                                            "borderWidth": "2px"
+                                        },
+                                        {
+                                            "type": "filler"
+                                        }
+                                    ],
+                                    "flex": 0
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "Akihabara",
+                                    "gravity": "center",
+                                    "flex": 4,
+                                    "size": "sm"
+                                }
+                            ],
+                            "spacing": "lg",
+                            "cornerRadius": "30px",
+                            "margin": "xl"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "contents": [
+                                        {
+                                            "type": "filler"
+                                        }
+                                    ],
+                                    "flex": 1
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                        {
+                                            "type": "box",
+                                            "layout": "horizontal",
+                                            "contents": [
+                                                {
+                                                    "type": "filler"
+                                                },
+                                                {
+                                                    "type": "box",
+                                                    "layout": "vertical",
+                                                    "contents": [],
+                                                    "width": "2px",
+                                                    "backgroundColor": "#B7B7B7"
+                                                },
+                                                {
+                                                    "type": "filler"
+                                                }
+                                            ],
+                                            "flex": 1
+                                        }
+                                    ],
+                                    "width": "12px"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "Walk 4min",
+                                    "gravity": "center",
+                                    "flex": 4,
+                                    "size": "xs",
+                                    "color": "#8c8c8c"
+                                }
+                            ],
+                            "spacing": "lg",
+                            "height": "64px"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "horizontal",
+                                    "contents": [
+                                        {
+                                            "type": "text",
+                                            "text": "20:34",
+                                            "gravity": "center",
+                                            "size": "sm"
+                                        }
+                                    ],
+                                    "flex": 1
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                        {
+                                            "type": "filler"
+                                        },
+                                        {
+                                            "type": "box",
+                                            "layout": "vertical",
+                                            "contents": [],
+                                            "cornerRadius": "30px",
+                                            "width": "12px",
+                                            "height": "12px",
+                                            "borderWidth": "2px",
+                                            "borderColor": "#6486E3"
+                                        },
+                                        {
+                                            "type": "filler"
+                                        }
+                                    ],
+                                    "flex": 0
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "Ochanomizu",
+                                    "gravity": "center",
+                                    "flex": 4,
+                                    "size": "sm"
+                                }
+                            ],
+                            "spacing": "lg",
+                            "cornerRadius": "30px"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "contents": [
+                                        {
+                                            "type": "filler"
+                                        }
+                                    ],
+                                    "flex": 1
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                        {
+                                            "type": "box",
+                                            "layout": "horizontal",
+                                            "contents": [
+                                                {
+                                                    "type": "filler"
+                                                },
+                                                {
+                                                    "type": "box",
+                                                    "layout": "vertical",
+                                                    "contents": [],
+                                                    "width": "2px",
+                                                    "backgroundColor": "#6486E3"
+                                                },
+                                                {
+                                                    "type": "filler"
+                                                }
+                                            ],
+                                            "flex": 1
+                                        }
+                                    ],
+                                    "width": "12px"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "Metro 1hr",
+                                    "gravity": "center",
+                                    "flex": 4,
+                                    "size": "xs",
+                                    "color": "#8c8c8c"
+                                }
+                            ],
+                            "spacing": "lg",
+                            "height": "64px"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "20:40",
+                                    "gravity": "center",
+                                    "size": "sm"
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                        {
+                                            "type": "filler"
+                                        },
+                                        {
+                                            "type": "box",
+                                            "layout": "vertical",
+                                            "contents": [],
+                                            "cornerRadius": "30px",
+                                            "width": "12px",
+                                            "height": "12px",
+                                            "borderColor": "#6486E3",
+                                            "borderWidth": "2px"
+                                        },
+                                        {
+                                            "type": "filler"
+                                        }
+                                    ],
+                                    "flex": 0
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "Shinjuku",
+                                    "gravity": "center",
+                                    "flex": 4,
+                                    "size": "sm"
+                                }
+                            ],
+                            "spacing": "lg",
+                            "cornerRadius": "30px"
+                        }
+                    ]
+                }
+            }
+        }
+        return client.replyMessage(event.replyToken, echo);
     } else if (event.type === 'message' && event.message.text === 'Notify2') {
         var userId = event.source.userId;
         const echo = {
@@ -159,52 +678,52 @@ async function handleEvent(event) {
         }
         return client.replyMessage(event.replyToken, echo);
     } else if (event.type === 'message') {
-        try {
-            const messageText = event.message.text;
-            const sessionId = event.source.userId;
-            const sessionPath = sessionClient.sessionPath(projectId, sessionId);
-            const request = {
-                session: sessionPath,
-                queryInput: {
-                    text: {
-                        text: messageText,
-                        languageCode: 'en', // Replace with the appropriate language code
-                    },
-                },
-            };
+        //try {
+        //    const messageText = event.message.text;
+        //    const sessionId = event.source.userId;
+        //    const sessionPath = sessionClient.sessionPath(projectId, sessionId);
+        //    const request = {
+        //        session: sessionPath,
+        //        queryInput: {
+        //            text: {
+        //                text: messageText,
+        //                languageCode: 'en', // Replace with the appropriate language code
+        //            },
+        //        },
+        //    };
 
-            const responses = await sessionClient.detectIntent(request);
-            const result = responses[0].queryResult;
+        //    const responses = await sessionClient.detectIntent(request);
+        //    const result = responses[0].queryResult;
 
-            // Handle the response from Dialogflow
-            const fulfillmentText = result.fulfillmentText;
-            if (fulfillmentText) {
-                const replyMessage = { type: 'text', text: fulfillmentText };
-                return client.replyMessage(event.replyToken, replyMessage);
-            }
-        } catch (err) {
-            const replyMessage = { type: 'text', text: err };
-            return client.replyMessage(event.replyToken, replyMessage);
-        }
+        //    // Handle the response from Dialogflow
+        //    const fulfillmentText = result.fulfillmentText;
+        //    if (fulfillmentText) {
+        //        const replyMessage = { type: 'text', text: fulfillmentText };
+        //        return client.replyMessage(event.replyToken, replyMessage);
+        //    }
+        //} catch (err) {
+        //    const replyMessage = { type: 'text', text: err };
+        //    return client.replyMessage(event.replyToken, replyMessage);
+        //}
 
-        //const axios = require('axios');
+        const axios = require('axios');
 
-        //axios
-        //    .post('https://rubber.mju.ac.th/lineapi/api/values', {
-        //        eventType: event.type,
-        //        userId: event.source.userId,
-        //        replyToken: event.replyToken,
-        //        messageType: event.message.type,
-        //        messageText: event.message.text,
-        //        eventText: JSON.stringify(event)
-        //    })
-        //    .then(res => {
-        //        console.log(`statusCode: ${res.status}`)
-        //        console.log(res)
-        //    })
-        //    .catch(error => {
-        //        console.error(error)
-        //    });
+        axios
+            .post('https://rubber.mju.ac.th/lineapi/api/values', {
+                eventType: event.type,
+                userId: event.source.userId,
+                replyToken: event.replyToken,
+                messageType: event.message.type,
+                messageText: event.message.text,
+                eventText: JSON.stringify(event)
+            })
+            .then(res => {
+                console.log(`statusCode: ${res.status}`)
+                console.log(res)
+            })
+            .catch(error => {
+                console.error(error)
+            });
 
     } else {
         //try {
