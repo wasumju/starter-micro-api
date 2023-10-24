@@ -102,7 +102,7 @@ async function handleEvent(event) {
                     }
                 ]
             }
-        }
+        };
         //const echo = {
         //    "type": "template",
         //    "altText": "สมัครแจ้งเตือน",
