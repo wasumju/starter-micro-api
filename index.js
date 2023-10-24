@@ -141,33 +141,33 @@ async function handleEvent(event) {
         }
         return client.replyMessage(event.replyToken, echo);
     } else if (event.type === 'message') {
-        try {
-            const messageText = event.message.text;
-            const sessionId = event.source.userId;
-            const sessionPath = sessionClient.sessionPath(projectId, sessionId);
-            const request = {
-                session: sessionPath,
-                queryInput: {
-                    text: {
-                        text: messageText,
-                        languageCode: 'en', // Replace with the appropriate language code
-                    },
-                },
-            };
+        //try {
+        //    const messageText = event.message.text;
+        //    const sessionId = event.source.userId;
+        //    const sessionPath = sessionClient.sessionPath(projectId, sessionId);
+        //    const request = {
+        //        session: sessionPath,
+        //        queryInput: {
+        //            text: {
+        //                text: messageText,
+        //                languageCode: 'en', // Replace with the appropriate language code
+        //            },
+        //        },
+        //    };
 
-            const responses = await sessionClient.detectIntent(request);
-            const result = responses[0].queryResult;
+        //    const responses = await sessionClient.detectIntent(request);
+        //    const result = responses[0].queryResult;
 
-            // Handle the response from Dialogflow
-            const fulfillmentText = result.fulfillmentText;
-            if (fulfillmentText) {
-                const replyMessage = { type: 'text', text: fulfillmentText };
-                return client.replyMessage(event.replyToken, replyMessage);
-            }
-        } catch (err) {
-            const replyMessage = { type: 'text', text: err };
-            return client.replyMessage(event.replyToken, replyMessage);
-        }
+        //    // Handle the response from Dialogflow
+        //    const fulfillmentText = result.fulfillmentText;
+        //    if (fulfillmentText) {
+        //        const replyMessage = { type: 'text', text: fulfillmentText };
+        //        return client.replyMessage(event.replyToken, replyMessage);
+        //    }
+        //} catch (err) {
+        //    const replyMessage = { type: 'text', text: err };
+        //    return client.replyMessage(event.replyToken, replyMessage);
+        //}
 
         const axios = require('axios');
 
@@ -189,33 +189,33 @@ async function handleEvent(event) {
             });
 
     } else {
-        try {
-            const messageText = event.message.text;
-            const sessionId = event.source.userId;
-            const sessionPath = sessionClient.sessionPath(projectId, sessionId);
-            const request = {
-                session: sessionPath,
-                queryInput: {
-                    text: {
-                        text: messageText,
-                        languageCode: 'en', // Replace with the appropriate language code
-                    },
-                },
-            };
+        //try {
+        //    const messageText = event.message.text;
+        //    const sessionId = event.source.userId;
+        //    const sessionPath = sessionClient.sessionPath(projectId, sessionId);
+        //    const request = {
+        //        session: sessionPath,
+        //        queryInput: {
+        //            text: {
+        //                text: messageText,
+        //                languageCode: 'en', // Replace with the appropriate language code
+        //            },
+        //        },
+        //    };
 
-            const responses = await sessionClient.detectIntent(request);
-            const result = responses[0].queryResult;
+        //    const responses = await sessionClient.detectIntent(request);
+        //    const result = responses[0].queryResult;
 
-            // Handle the response from Dialogflow
-            const fulfillmentText = result.fulfillmentText;
-            if (fulfillmentText) {
-                const replyMessage = { type: 'text', text: fulfillmentText };
-                return client.replyMessage(event.replyToken, replyMessage);
-            }
-        } catch (err) {
-            const replyMessage = { type: 'text', text: err };
-            return client.replyMessage(event.replyToken, replyMessage);
-        }
+        //    // Handle the response from Dialogflow
+        //    const fulfillmentText = result.fulfillmentText;
+        //    if (fulfillmentText) {
+        //        const replyMessage = { type: 'text', text: fulfillmentText };
+        //        return client.replyMessage(event.replyToken, replyMessage);
+        //    }
+        //} catch (err) {
+        //    const replyMessage = { type: 'text', text: err };
+        //    return client.replyMessage(event.replyToken, replyMessage);
+        //}
     }
 
 }
