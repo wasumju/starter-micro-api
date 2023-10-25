@@ -71,7 +71,7 @@ async function handleEvent(event) {
         var userId = event.source.userId;
         const echo = {
             "type": "flex",
-            "altText": "สมัครแจ้งเตือน",
+            "altText": "คำร้อง/บริการ",
             "contents": {
                 "type": "bubble",
                 "body": {
@@ -276,7 +276,7 @@ async function handleEvent(event) {
         var userId = event.source.userId;
         const echo = {
             "type": "flex",
-            "altText": "สมัครแจ้งเตือน",
+            "altText": "สถานะงาน",
             "contents": {
                 "type": "bubble",
                 "size": "mega",
@@ -290,15 +290,15 @@ async function handleEvent(event) {
                             "contents": [
                                 {
                                     "type": "text",
-                                    "text": "FROM",
+                                    "text": "สถานะงาน",
                                     "color": "#ffffff66",
                                     "size": "sm"
                                 },
                                 {
                                     "type": "text",
-                                    "text": "Akihabara",
+                                    "text": "Closed",
                                     "color": "#ffffff",
-                                    "size": "xl",
+                                    "size": "lg",
                                     "flex": 4,
                                     "weight": "bold"
                                 }
@@ -310,23 +310,16 @@ async function handleEvent(event) {
                             "contents": [
                                 {
                                     "type": "text",
-                                    "text": "TO",
-                                    "color": "#ffffff66",
-                                    "size": "sm"
-                                },
-                                {
-                                    "type": "text",
-                                    "text": "Shinjuku",
+                                    "text": "เช็คเข้าร่วมกิจกรรมซ้ำของบุคลากรผ่าน MJU App",
                                     "color": "#ffffff",
-                                    "size": "xl",
-                                    "flex": 4,
-                                    "weight": "bold"
+                                    "size": "sm",
+                                    "wrap": true
                                 }
                             ]
                         }
                     ],
                     "paddingAll": "20px",
-                    "backgroundColor": "#0367D3",
+                    "backgroundColor": "#727cf5",
                     "spacing": "md",
                     "height": "154px",
                     "paddingTop": "22px"
@@ -337,7 +330,7 @@ async function handleEvent(event) {
                     "contents": [
                         {
                             "type": "text",
-                            "text": "Total: 1 hour",
+                            "text": "Total: 2 day",
                             "color": "#b7b7b7",
                             "size": "xs"
                         },
@@ -345,12 +338,6 @@ async function handleEvent(event) {
                             "type": "box",
                             "layout": "horizontal",
                             "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "20:30",
-                                    "size": "sm",
-                                    "gravity": "center"
-                                },
                                 {
                                     "type": "box",
                                     "layout": "vertical",
@@ -376,10 +363,18 @@ async function handleEvent(event) {
                                 },
                                 {
                                     "type": "text",
-                                    "text": "Akihabara",
+                                    "text": "Open",
                                     "gravity": "center",
-                                    "flex": 4,
-                                    "size": "sm"
+                                    "flex": 2,
+                                    "size": "sm",
+                                    "color": "#EF454D"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "10/10/2566 14:20",
+                                    "size": "sm",
+                                    "gravity": "center",
+                                    "flex": 4
                                 }
                             ],
                             "spacing": "lg",
@@ -390,16 +385,6 @@ async function handleEvent(event) {
                             "type": "box",
                             "layout": "horizontal",
                             "contents": [
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "contents": [
-                                        {
-                                            "type": "filler"
-                                        }
-                                    ],
-                                    "flex": 1
-                                },
                                 {
                                     "type": "box",
                                     "layout": "vertical",
@@ -429,7 +414,7 @@ async function handleEvent(event) {
                                 },
                                 {
                                     "type": "text",
-                                    "text": "Walk 4min",
+                                    "text": "น.ส.ญาณิศา ไชยศรีหา",
                                     "gravity": "center",
                                     "flex": 4,
                                     "size": "xs",
@@ -445,19 +430,6 @@ async function handleEvent(event) {
                             "contents": [
                                 {
                                     "type": "box",
-                                    "layout": "horizontal",
-                                    "contents": [
-                                        {
-                                            "type": "text",
-                                            "text": "20:34",
-                                            "gravity": "center",
-                                            "size": "sm"
-                                        }
-                                    ],
-                                    "flex": 1
-                                },
-                                {
-                                    "type": "box",
                                     "layout": "vertical",
                                     "contents": [
                                         {
@@ -471,7 +443,7 @@ async function handleEvent(event) {
                                             "width": "12px",
                                             "height": "12px",
                                             "borderWidth": "2px",
-                                            "borderColor": "#6486E3"
+                                            "borderColor": "#e5a54b"
                                         },
                                         {
                                             "type": "filler"
@@ -481,7 +453,15 @@ async function handleEvent(event) {
                                 },
                                 {
                                     "type": "text",
-                                    "text": "Ochanomizu",
+                                    "text": "In-Progress",
+                                    "gravity": "center",
+                                    "size": "sm",
+                                    "flex": 2,
+                                    "color": "#e5a54b"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "11/10/2566 10:30",
                                     "gravity": "center",
                                     "flex": 4,
                                     "size": "sm"
@@ -494,16 +474,6 @@ async function handleEvent(event) {
                             "type": "box",
                             "layout": "horizontal",
                             "contents": [
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "contents": [
-                                        {
-                                            "type": "filler"
-                                        }
-                                    ],
-                                    "flex": 1
-                                },
                                 {
                                     "type": "box",
                                     "layout": "vertical",
@@ -520,7 +490,7 @@ async function handleEvent(event) {
                                                     "layout": "vertical",
                                                     "contents": [],
                                                     "width": "2px",
-                                                    "backgroundColor": "#6486E3"
+                                                    "backgroundColor": "#B7B7B7"
                                                 },
                                                 {
                                                     "type": "filler"
@@ -533,7 +503,7 @@ async function handleEvent(event) {
                                 },
                                 {
                                     "type": "text",
-                                    "text": "Metro 1hr",
+                                    "text": "นายวสุ ไชยศรีหา",
                                     "gravity": "center",
                                     "flex": 4,
                                     "size": "xs",
@@ -548,11 +518,94 @@ async function handleEvent(event) {
                             "layout": "horizontal",
                             "contents": [
                                 {
-                                    "type": "text",
-                                    "text": "20:40",
-                                    "gravity": "center",
-                                    "size": "sm"
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                        {
+                                            "type": "filler"
+                                        },
+                                        {
+                                            "type": "box",
+                                            "layout": "vertical",
+                                            "contents": [],
+                                            "cornerRadius": "30px",
+                                            "width": "12px",
+                                            "height": "12px",
+                                            "borderWidth": "2px",
+                                            "borderColor": "#4bbf73"
+                                        },
+                                        {
+                                            "type": "filler"
+                                        }
+                                    ],
+                                    "flex": 0
                                 },
+                                {
+                                    "type": "text",
+                                    "text": "Fixed",
+                                    "gravity": "center",
+                                    "size": "sm",
+                                    "flex": 2,
+                                    "color": "#4bbf73"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "11/10/2566 09:20",
+                                    "gravity": "center",
+                                    "flex": 4,
+                                    "size": "sm"
+                                }
+                            ],
+                            "spacing": "lg",
+                            "cornerRadius": "30px"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                        {
+                                            "type": "box",
+                                            "layout": "horizontal",
+                                            "contents": [
+                                                {
+                                                    "type": "filler"
+                                                },
+                                                {
+                                                    "type": "box",
+                                                    "layout": "vertical",
+                                                    "contents": [],
+                                                    "width": "2px",
+                                                    "backgroundColor": "#B7B7B7"
+                                                },
+                                                {
+                                                    "type": "filler"
+                                                }
+                                            ],
+                                            "flex": 1
+                                        }
+                                    ],
+                                    "width": "12px"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "นายวสุ ไชยศรีหา",
+                                    "gravity": "center",
+                                    "flex": 4,
+                                    "size": "xs",
+                                    "color": "#8c8c8c"
+                                }
+                            ],
+                            "spacing": "lg",
+                            "height": "64px"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
                                 {
                                     "type": "box",
                                     "layout": "vertical",
@@ -567,8 +620,8 @@ async function handleEvent(event) {
                                             "cornerRadius": "30px",
                                             "width": "12px",
                                             "height": "12px",
-                                            "borderColor": "#6486E3",
-                                            "borderWidth": "2px"
+                                            "borderWidth": "2px",
+                                            "borderColor": "#313a46"
                                         },
                                         {
                                             "type": "filler"
@@ -578,7 +631,15 @@ async function handleEvent(event) {
                                 },
                                 {
                                     "type": "text",
-                                    "text": "Shinjuku",
+                                    "text": "Closed",
+                                    "gravity": "center",
+                                    "size": "sm",
+                                    "flex": 2,
+                                    "color": "#313a46"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "12/10/2566 09:20",
                                     "gravity": "center",
                                     "flex": 4,
                                     "size": "sm"
@@ -586,6 +647,49 @@ async function handleEvent(event) {
                             ],
                             "spacing": "lg",
                             "cornerRadius": "30px"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                        {
+                                            "type": "box",
+                                            "layout": "horizontal",
+                                            "contents": [
+                                                {
+                                                    "type": "filler"
+                                                },
+                                                {
+                                                    "type": "box",
+                                                    "layout": "vertical",
+                                                    "contents": [],
+                                                    "width": "2px",
+                                                    "backgroundColor": "#B7B7B7"
+                                                },
+                                                {
+                                                    "type": "filler"
+                                                }
+                                            ],
+                                            "flex": 1
+                                        }
+                                    ],
+                                    "width": "12px"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "น.ส.ญาณิศา ไชยศรีหา",
+                                    "gravity": "center",
+                                    "flex": 4,
+                                    "size": "xs",
+                                    "color": "#8c8c8c"
+                                }
+                            ],
+                            "spacing": "lg",
+                            "height": "64px"
                         }
                     ]
                 }
