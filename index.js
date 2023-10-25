@@ -136,7 +136,8 @@ async function handleEvent(event) {
                                                 "uri": "https://erp.mju.ac.th/"
                                             }
                                         }
-                                    ]
+                                    ],
+                                    "margin": "md"
                                 },
                                 {
                                     "type": "box",
@@ -154,7 +155,8 @@ async function handleEvent(event) {
                                                 "uri": "https://erp.mju.ac.th/"
                                             }
                                         }
-                                    ]
+                                    ],
+                                    "margin": "md"
                                 },
                                 {
                                     "type": "separator",
@@ -195,7 +197,8 @@ async function handleEvent(event) {
                                                 "uri": "https://erp.mju.ac.th/"
                                             }
                                         }
-                                    ]
+                                    ],
+                                    "margin": "md"
                                 },
                                 {
                                     "type": "box",
@@ -213,7 +216,8 @@ async function handleEvent(event) {
                                                 "uri": "https://erp.mju.ac.th/"
                                             }
                                         }
-                                    ]
+                                    ],
+                                    "margin": "md"
                                 },
                                 {
                                     "type": "box",
@@ -230,7 +234,8 @@ async function handleEvent(event) {
                                                 "uri": "https://erp.mju.ac.th/"
                                             }
                                         }
-                                    ]
+                                    ],
+                                    "margin": "md"
                                 }
                             ]
                         },
