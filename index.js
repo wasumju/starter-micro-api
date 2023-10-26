@@ -59,6 +59,18 @@ async function handleEvent(event) {
         var userId = event.source.userId;
         const echo = { type: 'text', text: "Test Push Message" + event.message.text };
         return client.replyMessage(event.replyToken, echo);
+    } else if (event.type === 'message' && event.message.text === 'TestGet') {
+        const fetch = require('node-fetch');
+
+        fetch('https://rubber.mju.ac.th/lineapi/api/values/1200')
+            .then(response => response.json())
+            .then(data => {
+                const echo = data; // ดึงข้อมูล JSON จากการเรียก API
+                return client.replyMessage(event.replyToken, echo);
+            })
+            .catch(error => {
+                console.error(error);
+            });
     } else if (event.type === 'message' && event.message.text === 'วสุ') {
         const echo = {
             'type': 'image',
@@ -812,7 +824,7 @@ async function handleEvent(event) {
         //} catch (err) {
         //    const replyMessage = { type: 'text', text: err };
         //    return client.replyMessage(event.replyToken, replyMessage);
-        //}
+        //}      
 
         fetch('https://rubber.mju.ac.th/lineapi/api/values', {
             method: 'POST',
@@ -826,7 +838,7 @@ async function handleEvent(event) {
                 replyToken: event.replyToken,
                 messageType: event.message.type,
                 messageText: event.message.text,
-                eventText: JSON.stringify(event)
+                eventText: ''
             })
         })
             .then(response => response.json()) // สามารถใช้ .text(), .json(), หรือเมธอดอื่น ๆ สำหรับการดึงข้อมูลเป็นรูปแบบที่ต้องการ
