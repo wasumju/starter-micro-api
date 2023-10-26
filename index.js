@@ -57,9 +57,8 @@ async function handleEvent(event) {
 
     if (event.type === 'message' && event.message.text === 'แจ้ง') {
         var userId = event.source.userId;
-        const echo = { type: 'text', text: "Test Push Message" };
-        return client.pushMessage('Ucffe45ba03544411cc13d023c7b57576', echo);
-
+        const echo = { type: 'text', text: "Test Push Message" + event.message.text };
+        return client.replyMessage(event.replyToken, echo);
     } else if (event.type === 'message' && event.message.text === 'วสุ') {
         const echo = {
             'type': 'image',
@@ -832,6 +831,8 @@ async function handleEvent(event) {
             })
             .catch(error => {
                 console.error(error)
+                const echo = { type: 'text', text: "error : " + error };
+                return client.replyMessage(event.replyToken, echo);
             });
 
     } else {
