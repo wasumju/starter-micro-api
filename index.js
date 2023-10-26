@@ -36,23 +36,38 @@ app.post('/callback', line.middleware(config), (req, res) => {
 async function handleEvent(event) {
     if (event.type === 'follow') {
         const axios = require('axios')
-
-        axios
-            .post('https://rubber.mju.ac.th/lineapi/api/values', {
+        try {
+            const response = await axios.post('https://rubber.mju.ac.th/lineapi/api/values', {
                 eventType: event.type,
                 userId: event.source.userId,
                 replyToken: event.replyToken,
                 messageType: event.message.type,
                 messageText: event.message.text,
                 eventText: JSON.stringify(event)
-            })
-            .then(res => {
-                console.log(`statusCode: ${res.status}`)
-                console.log(res)
-            })
-            .catch(error => {
-                console.error(error)
-            })
+            });
+
+            console.log(`statusCode: ${response.status}`);
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+
+        //axios
+        //    .post('https://rubber.mju.ac.th/lineapi/api/values', {
+        //        eventType: event.type,
+        //        userId: event.source.userId,
+        //        replyToken: event.replyToken,
+        //        messageType: event.message.type,
+        //        messageText: event.message.text,
+        //        eventText: JSON.stringify(event)
+        //    })
+        //    .then(res => {
+        //        console.log(`statusCode: ${res.status}`)
+        //        console.log(res)
+        //    })
+        //    .catch(error => {
+        //        console.error(error)
+        //    })
     }
 
     if (event.type === 'message' && event.message.text === 'แจ้ง') {
@@ -62,15 +77,23 @@ async function handleEvent(event) {
     } else if (event.type === 'message' && event.message.text === 'TestGet') {
         const fetch = require('node-fetch');
 
-        fetch('https://rubber.mju.ac.th/lineapi/api/values/1200')
-            .then(response => response.json())
-            .then(data => {
-                const echo = data; // ดึงข้อมูล JSON จากการเรียก API
-                return client.replyMessage(event.replyToken, echo);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+        try {
+            const response = await fetch('https://rubber.mju.ac.th/lineapi/api/values/1200');
+            const data = await response.json();
+            const echo = data;
+            return client.replyMessage(event.replyToken, echo);
+        } catch (error) {
+            console.error(error);
+        }
+        //fetch('https://rubber.mju.ac.th/lineapi/api/values/1200')
+        //    .then(response => response.json())
+        //    .then(data => {
+        //        const echo = data; // ดึงข้อมูล JSON จากการเรียก API
+        //        return client.replyMessage(event.replyToken, echo);
+        //    })
+        //    .catch(error => {
+        //        console.error(error);
+        //    });
     } else if (event.type === 'message' && event.message.text === 'วสุ') {
         const echo = {
             'type': 'image',
@@ -825,29 +848,56 @@ async function handleEvent(event) {
         //    const replyMessage = { type: 'text', text: err };
         //    return client.replyMessage(event.replyToken, replyMessage);
         //}      
-
-        fetch('https://rubber.mju.ac.th/lineapi/api/values', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                // สามารถเพิ่ม headers อื่น ๆ ที่ต้องการ
-            },
-            body: JSON.stringify({
-                eventType: event.type,
-                userId: event.source.userId,
-                replyToken: event.replyToken,
-                messageType: event.message.type,
-                messageText: event.message.text,
-                eventText: ''
-            })
-        })
-            .then(response => response.json()) // สามารถใช้ .text(), .json(), หรือเมธอดอื่น ๆ สำหรับการดึงข้อมูลเป็นรูปแบบที่ต้องการ
-            .then(data => {
-                console.log(data); // การตอบกลับจากเซิร์ฟเวอร์
-            })
-            .catch(error => {
-                console.error(error);
+        try {
+            const response = await fetch('https://rubber.mju.ac.th/lineapi/api/values', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // สามารถเพิ่ม headers อื่น ๆ ที่ต้องการ
+                },
+                body: JSON.stringify({
+                    eventType: event.type,
+                    userId: event.source.userId,
+                    replyToken: event.replyToken,
+                    messageType: event.message.type,
+                    messageText: event.message.text,
+                    eventText: JSON.stringify(event)
+                })
             });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data); // การตอบกลับจากเซิร์ฟเวอร์
+                // นำตัวแปร data ไปใช้ใน client.replyMessage
+            } else {
+                console.error('เกิดข้อผิดพลาดในการส่งคำขอ');
+            }
+        } catch (error) {
+            console.error(error);
+        }
+
+        //fetch('https://rubber.mju.ac.th/lineapi/api/values', {
+        //    method: 'POST',
+        //    headers: {
+        //        'Content-Type': 'application/json',
+        //        // สามารถเพิ่ม headers อื่น ๆ ที่ต้องการ
+        //    },
+        //    body: JSON.stringify({
+        //        eventType: event.type,
+        //        userId: event.source.userId,
+        //        replyToken: event.replyToken,
+        //        messageType: event.message.type,
+        //        messageText: event.message.text,
+        //        eventText: ''
+        //    })
+        //})
+        //    .then(response => response.json()) // สามารถใช้ .text(), .json(), หรือเมธอดอื่น ๆ สำหรับการดึงข้อมูลเป็นรูปแบบที่ต้องการ
+        //    .then(data => {
+        //        console.log(data); // การตอบกลับจากเซิร์ฟเวอร์
+        //    })
+        //    .catch(error => {
+        //        console.error(error);
+        //    });
 
 
         //const axios = require('axios');
