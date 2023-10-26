@@ -814,10 +814,13 @@ async function handleEvent(event) {
         //    return client.replyMessage(event.replyToken, replyMessage);
         //}
 
-        const axios = require('axios');
-
-        axios
-            .post('https://rubber.mju.ac.th/lineapi/api/values', {
+        fetch('https://rubber.mju.ac.th/lineapi/api/values', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                // สามารถเพิ่ม headers อื่น ๆ ที่ต้องการ
+            },
+            body: JSON.stringify({
                 eventType: event.type,
                 userId: event.source.userId,
                 replyToken: event.replyToken,
@@ -825,15 +828,36 @@ async function handleEvent(event) {
                 messageText: event.message.text,
                 eventText: JSON.stringify(event)
             })
-            .then(res => {
-                console.log(`statusCode: ${res.status}`)
-                console.log(res)
+        })
+            .then(response => response.json()) // สามารถใช้ .text(), .json(), หรือเมธอดอื่น ๆ สำหรับการดึงข้อมูลเป็นรูปแบบที่ต้องการ
+            .then(data => {
+                console.log(data); // การตอบกลับจากเซิร์ฟเวอร์
             })
             .catch(error => {
-                console.error(error)
-                const echo = { type: 'text', text: "error : " + error };
-                return client.replyMessage(event.replyToken, echo);
+                console.error(error);
             });
+
+
+        //const axios = require('axios');
+
+        //axios
+        //    .post('https://rubber.mju.ac.th/lineapi/api/values', {
+        //        eventType: event.type,
+        //        userId: event.source.userId,
+        //        replyToken: event.replyToken,
+        //        messageType: event.message.type,
+        //        messageText: event.message.text,
+        //        eventText: JSON.stringify(event)
+        //    })
+        //    .then(res => {
+        //        console.log(`statusCode: ${res.status}`)
+        //        console.log(res)
+        //    })
+        //    .catch(error => {
+        //        console.error(error)
+        //        const echo = { type: 'text', text: "error : " + error };
+        //        return client.replyMessage(event.replyToken, echo);
+        //    });
 
     } else {
         //try {
